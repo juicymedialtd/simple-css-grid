@@ -1,0 +1,89 @@
+/**
+ * Apply the content if the media width is above the breakpoint
+ *
+ * @param {String} $breakpoint The breakpoint to apply the content from
+ */
+@mixin media-breakpoint-up($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+/**
+ * Apply the content if the media width is below the breakpoint
+ *
+ * @param {String} $breakpoint The breakpoint to apply the content up to
+ */
+@mixin media-breakpoint-down($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+/**
+ * Apply the content if the media width is between the breakpoints
+ *
+ * @param {String} $breakpoint-min The breakpoint to apply the content from
+ * @param {String} $breakpoint-max The breakpoint to apply the content up to
+ */
+@mixin media-breakpoint-between($breakpoint-min, $breakpoint-max) {
+  @if map-has-key($breakpoints, $breakpoint-min) and map-has-key($breakpoints, $breakpoint-max) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint-min)}) and (max-width: #{map-get($breakpoints, $breakpoint-max)}) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint-min}` or `#{$breakpoint-max}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+/**
+ * Make grid columns
+ *
+ * @param {Number} $grid-columns The number of columns in a row
+ * @param {String} [$size] The breakpoint size to apply make the columns for
+ */
+@mixin make-column($grid-columns, $size: null) {
+  @if $size {
+    $size: -#{$size};
+  }
+
+  .col#{$size} {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  @for $i from 1 through $grid-columns {
+    .col#{$size}-#{$i} {
+      $col-width: (100% / $grid-columns * $i);
+      flex-basis: $col-width;
+      max-width: $col-width;
+    }
+  }
+}
+
+/**
+ * Generate grid columns for all breakpoints defined in a sass map
+ *
+ * @param {Map} $breakpoints The breakpoints to generate columns for
+ * @param {Number} $grid-columns The number of columns in a row
+ */
+@mixin generate-columns($breakpoints, $grid-columns) {
+  @include make-column($grid-columns);
+  @each $breakpoint, $size in $breakpoints {
+    @include media-breakpoint-up($breakpoint) {
+      @include make-column($grid-columns, $breakpoint);
+    }
+  }
+}

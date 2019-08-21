@@ -1,0 +1,11 @@
+{
+  "name": "simple-css-grid",
+  "version": "1.0.0",
+  "description": "A simple flexbox based CSS grid",
+  "keywords": [],
+  "author": "Juicy Media",
+  "license": "MIT",
+  "devDependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}

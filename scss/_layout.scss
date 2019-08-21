@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding-right: $column-gutter;
+  padding-left: $column-gutter;
+}
+
+.container-fluid {
+  padding-right: $column-gutter;
+  padding-left: $column-gutter;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+
+  &:not(&--no-gutters) {
+    .col,
+    [class^="col-"] {
+      padding-right: $column-gutter;
+      padding-left: $column-gutter;
+    }
+  }
+}
+
+@include generate-columns($breakpoints, $grid-columns);

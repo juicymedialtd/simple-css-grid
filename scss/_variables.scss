@@ -1,0 +1,15 @@
+$breakpoints: (
+  xxs: 320px, // Base Mobile (iPhone 5)
+  xs: 375px, // iPhone 6, X
+  xxsl: 568px, // xxs landscape
+  xsl: 667px, // xs landscape
+  sm: 768px, // tablet
+  md: 1024px, // tablet landscape
+  lg: 1200px, // desktop
+  xl: 1440px, // desktop large
+) !default;
+
+$grid-columns: 12 !default;
+$column-gutter: 16px !default;
+
+$container-width: 1280px !default;
