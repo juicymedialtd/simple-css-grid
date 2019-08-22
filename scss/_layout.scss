@@ -19,8 +19,11 @@
   flex-wrap: wrap;
 
   &:not(&--no-gutters) {
-    .col,
-    [class^="col-"] {
+    margin-right: -$column-gutter;
+    margin-left: -$column-gutter;
+
+    & > .col,
+    & > [class^="col-"] {
       padding-right: $column-gutter;
       padding-left: $column-gutter;
     }
