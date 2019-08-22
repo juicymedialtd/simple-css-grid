@@ -1,11 +1,20 @@
 {
   "name": "simple-css-grid",
   "version": "1.0.0",
-  "description": "A simple flexbox based CSS grid",
-  "keywords": [],
+  "description": "A simple Flexbox based grid system for CSS.",
+  "keywords": [
+    "css",
+    "grid",
+    "flexbox",
+    "css framework",
+    "responsive",
+    "sass",
+    "mobile first",
+    "front end"
+  ],
   "author": "Juicy Media",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "normalize.css": "^8.0.1"
   }
 }
