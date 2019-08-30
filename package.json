@@ -16,5 +16,9 @@
   "license": "MIT",
   "dependencies": {
     "normalize.css": "^8.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juicymedialtd/simple-css-grid"
   }
 }
