@@ -1,4 +1,4 @@
-#Simple CSS Grid
+# Simple CSS Grid
 A simple Flexbox based grid system for CSS.
 
 ## Install
