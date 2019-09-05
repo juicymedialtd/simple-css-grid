@@ -3,6 +3,7 @@
 }
 
 .container {
+  width: 100%;
   max-width: $container-width;
   margin: 0 auto;
   padding-right: $column-gutter;
@@ -10,6 +11,7 @@
 }
 
 .container-fluid {
+  width: 100%;
   padding-right: $column-gutter;
   padding-left: $column-gutter;
 }
