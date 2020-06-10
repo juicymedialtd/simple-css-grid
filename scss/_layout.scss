@@ -17,8 +17,8 @@
 }
 
 .container--safe {
-  padding-right: max($column-gutter, env(safe-area-inset-right));
-  padding-left: max($column-gutter, env(safe-area-inset-left));
+  padding-right: max(#{$column-gutter}, env(safe-area-inset-right));
+  padding-left: max(#{$column-gutter}, env(safe-area-inset-left));
 }
 
 .row {
