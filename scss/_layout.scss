@@ -16,6 +16,11 @@
   padding-left: $column-gutter;
 }
 
+.container--safe {
+  padding-right: max($column-gutter, env(safe-area-inset-right));
+  padding-left: max($column-gutter, env(safe-area-inset-left));
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -25,7 +30,7 @@
     margin-left: -$column-gutter;
 
     & > .col,
-    & > [class^="col-"] {
+    & > [class^='col-'] {
       padding-right: $column-gutter;
       padding-left: $column-gutter;
     }
