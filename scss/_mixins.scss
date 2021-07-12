@@ -3,6 +3,8 @@
  *
  * @param {String} $breakpoint The breakpoint to apply the content from
  */
+@use "sass:math";
+
 @mixin media-breakpoint-up($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
@@ -66,7 +68,7 @@
 
   @for $i from 1 through $grid-columns {
     .col#{$size}-#{$i} {
-      $col-width: (100% / $grid-columns * $i);
+      $col-width: (math.div(100%, $grid-columns) * $i);
       flex-basis: $col-width;
       max-width: $col-width;
     }
