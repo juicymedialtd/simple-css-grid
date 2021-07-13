@@ -35,6 +35,10 @@
       padding-left: $column-gutter;
     }
   }
+
+  &.row-vcentered {
+    align-items: center;
+  }
 }
 
 @include generate-columns($breakpoints, $grid-columns);
