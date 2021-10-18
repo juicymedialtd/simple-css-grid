@@ -25,7 +25,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  &:not(&--no-gutters) {
+  &:not(&--no-gutters):not(&--compact) {
     margin-right: calc(#{$column-gutter} * -1);
     margin-left: calc(#{$column-gutter} * -1);
 
@@ -35,7 +35,19 @@
       padding-left: $column-gutter;
     }
   }
+
+  &--compact {
+    margin-right: calc(#{$compact-column-gutter} * -1);
+    margin-left: calc(#{$compact-column-gutter} * -1);
+
+    & > .col,
+    & > [class^='col-'] {
+      padding-right: $compact-column-gutter;
+      padding-left: $compact-column-gutter;
+    }
+  }
 }
+
 
 @include generate-columns($breakpoints, $grid-columns);
 
