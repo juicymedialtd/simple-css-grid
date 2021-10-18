@@ -26,8 +26,8 @@
   flex-wrap: wrap;
 
   &:not(&--no-gutters) {
-    margin-right: -$column-gutter;
-    margin-left: -$column-gutter;
+    margin-right: calc(#{$column-gutter} * -1);
+    margin-left: calc(#{$column-gutter} * -1);
 
     & > .col,
     & > [class^='col-'] {
